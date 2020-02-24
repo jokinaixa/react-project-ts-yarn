@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 
-function App() {
+import { Layout } from "./components/Layout";
+import { Cabecera } from "./components/Cabecera";
+
+import Home from "./components/Home";
+import Personajes from "./components/personajes/Personajes";
+import PersonajeFicha from "./components/personajes/PersonajeFicha";
+import Tareas from "./components/tareas/Tasks";
+import ComboTarjetas from "./components/lk/ComboTarjetas";
+import ComboDepositos from "./components/lk/ComboDepositos";
+import CardTarjetas from "./components/lk/CardTarjetas";
+import Flexbox from "./components/flexbox/Flexbox";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Layout>
+        <Cabecera/>
+        <Router>
+          <Route exact path="/home" component={Home} />
+          <Route path="/personajes" component={Personajes} />
+          <Route
+            path="/personajeFicha/:idPersonaje"
+            component={PersonajeFicha}
+          />
+          <Route path="/tareas" component={Tareas} />
+          <Route path="/lknet/comboTarjetas" component={ComboTarjetas} />
+          <Route path="/lknet/comboDepositos" component={ComboDepositos} />
+          <Route path="/lknet/cardTarjetas" component={CardTarjetas} />
+          <Route path="/flexbox" component={Flexbox} />
+        </Router>
+      </Layout>
+    </React.Fragment>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin-bottom: 0px;
+
+  .list-inline-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+.contenedor {
+  background: #ccc;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+
+  /* Flex */
+  display: flex;
+  flex-flow: row wrap;
+}
+
+header {
+  background: #2c3e50;
+  width: 100%;
+  padding:20px;
+
+  /* Flex */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .logo {
+    color: #fff;
+    font-size: 30px;
+  }
+
+  .navegador {
+    width: 50%;
+  
+    /* Flex */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    li {
+      background: #c0392b;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      
+      /* Flex */
+      flex-grow: 1;
+
+      &:hover {
+        background: #e74c3c;
+      }
+    }
+  }
+}
+
+.main {
+  background: #e4e3e3;
+  padding: 20px;
+
+  /* Flex */
+  flex: 1 1 70%;
+  /*flex: 1;*/
+
+  article {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000;
+
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}
+
+aside {
+  background: #e67e22;
+  padding: 20px;
+
+  /* Flex */
+  flex: 1 1 30%;
+  /*flex: 0 0 300px;*/
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .widget {
+    background: #d35400;
+    height: 150px;
+    margin: 10px;
+  }
+}
+
+footer {
+  background: #2c3e50;
+  width: 100%;
+  padding: 20px;
+
+  /* Flex */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .links {
+    background: #c0392b;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      flex-grow: 1;
+
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        background: #e74c3c;
+      }
+    }
+  }
+
+  .social {
+    background: #e67e22;
+
+    li {
+      color: #fff;
+      padding: 10px 25px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .contenedor {
+    flex-direction: column;
+  }
+
+  header {
+    flex-direction: column;
+    padding: 0;
+
+    .logo {
+      margin: 20px 0;
+    }
+
+    .navegador {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  aside {
+    flex-direction: column;
+  }
+
+  footer {
+    justify-content: space-around;
+  }
+}
