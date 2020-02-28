@@ -1,11 +1,9 @@
+import drinkAll from './drink1';
+//const drinkAll = require('./drink');
+//jest.mock('./drink1')
 
-function drinkAll(callback, flavour) {
-  if (flavour !== 'octopus') {
-    callback(flavour);
-  }
-}
-
-describe('drinkAll', () => {
+describe('pruebas jest', () => {
+  // drinkAll
   test('drinks something lemon-flavoured', () => {
     const drink = jest.fn();
     drinkAll(drink, 'lemon');
@@ -16,5 +14,10 @@ describe('drinkAll', () => {
     const drink = jest.fn();
     drinkAll(drink, 'octopus');
     expect(drink).not.toHaveBeenCalled();
+  });
+
+  test('contenido del boton', () => {
+    const ejemplo = { id: 'an id', title: 'a title', place: 'a place' };
+    expect(ejemplo.id).toContain('an id');
   });
 });
